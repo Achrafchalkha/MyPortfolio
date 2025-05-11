@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
                 offset={-70}
                 className="btn-primary"
               >
-                Contact Me
+                Contact you
               </Link>
                 <a 
                 href="/MyResume-English(PFA).pdf" 
