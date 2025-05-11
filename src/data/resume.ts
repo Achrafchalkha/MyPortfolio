@@ -121,17 +121,17 @@ export const certificationsData: Certification[] = [
   {
     title: "ORACLE CERTIFIED ASSOCIATE, JAVA SE 8 PROGRAMMER",
     issuer: "Oracle",
-    url: "/src/components/1739293504393.pdf",
+    url: "/1739293504393.pdf",
   },
   {
     title: "ORACLE CLOUD INFRASTRUCTURE FOUNDATIONS ASSOCIATE CERTIFICATE",
     issuer: "Oracle",
-    url: "/Myportfolio/src/components/1738178947867.pdf",
+    url: "/1738178947867.pdf",
   },
   {
     title: "DOCKER FOR BEGINNERS",
     issuer: "Udemy",
-    url: "/src/components/1732557124329.pdf",
+    url: "/1732557124329.pdf",
   }
 ];
 

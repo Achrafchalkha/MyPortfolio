@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
                 Contact Me
               </Link>
                 <a 
-                href="/src/components/MyResume-English(PFA).pdf" 
+                href="/MyResume-English(PFA).pdf" 
                 className="btn-outline flex items-center"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -120,7 +120,7 @@ const Hero: React.FC = () => {
           >
             <div className="relative">
               <img 
-              src="\src\components\1730805694900 (1).jpg" 
+              src="/1730805694900 (1).jpg" 
               alt="Hero Image" 
               className="w-2/3 h-80 lg:h-[24rem] rounded-2xl object-cover shadow-lg ml-36"
               />
