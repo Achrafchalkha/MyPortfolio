@@ -101,7 +101,7 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: "Frameworks & Libraries",
-    skills: ["Laravel", "React.js", "TypeScript", "Spring Boot", "Spring MVC", "Spring Security", "Spring Data JPA"]
+    skills: ["Angular", "Laravel", "React.js", "TypeScript", "Spring Boot", "Spring MVC", "Spring Security", "Spring Data JPA"]
   },
   {
     category: "Databases",
