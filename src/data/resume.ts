@@ -59,6 +59,19 @@ export const educationData: Education[] = [
 
 export const projectsData: Project[] = [
   {
+    title: "AI Career Navigator",
+    description: "An intelligent career guidance platform that delivers personalized career recommendations, learning roadmaps, and real-time job market insights using AI. It features JWT-secured authentication, skill tracking, and an interactive user experience powered by Angular frontend and Spring Boot backend.",
+    technologies: [
+      "Spring Boot",
+      "Angular",
+      "JWT",
+      "MongoDB",
+      "Spring Security",
+    ],
+    githubUrl: "https://github.com/Achrafchalkha/AI-CAREER-NAVIGATOR",
+    imageUrl: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
     title: "Talent Acquisition Management System (TAMS)",
     description: "Building a recruitment management app using Spring Boot, Spring Security, Microservices, DDD, EDA (CQRS) for the backend and React.js with Redux for the frontend. Ensures secure and efficient talent request handling with automated job postings.",
     technologies: ["Spring Boot", "Spring Security", "Microservices", "DDD", "CQRS", "React.js", "Redux"],
@@ -85,7 +98,16 @@ export const projectsData: Project[] = [
     technologies: ["HTML", "CSS", "PHP", "Laravel", "JavaScript"],
     githubUrl: "https://github.com/Achrafchalkha/E-service",
     imageUrl: "https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    title: "Collaborative Text Annotation Platform",
+    description: "Developed a collaborative web-based tool for text annotation and dataset management using Spring Boot, Thymeleaf, and TailwindCSS. Features include role and task management, intuitive UI design, and optimized performance and security.",
+    technologies: ["Spring Boot","Spring Security", "Thymeleaf", "TailwindCSS"],
+    githubUrl: "https://github.com/Achrafchalkha/Web-Based-Collaborative-Annotation-System-with-Task-Assignment",
+    imageUrl: "https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
+  
+  
   
 
 ];
@@ -99,7 +121,7 @@ export const skillsData: SkillCategory[] = [
     category: "Web Technologies",
     skills: ["HTML5", "CSS3", "Tailwind CSS", "RESTful APIs", "JSON"]
   },
-  {
+  { 
     category: "Frameworks & Libraries",
     skills: ["Angular", "Laravel", "React.js", "TypeScript", "Spring Boot", "Spring MVC", "Spring Security", "Spring Data JPA"]
   },
