@@ -33,53 +33,46 @@ const Contact: React.FC = () => {
     setIsLoading(true);
     setShowSuccess(false);
     
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.message) {
+      alert('Veuillez remplir tous les champs obligatoires.');
+      setIsLoading(false);
+      return;
+    }
+    
     // EmailJS configuration from config file
     const { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } = EMAILJS_CONFIG;
     
-    // Check if EmailJS is properly configured
-    const isEmailJSConfigured = 
-      SERVICE_ID !== 'service_your_service_id' && 
-      TEMPLATE_ID !== 'template_your_template_id' && 
-      PUBLIC_KEY !== 'your_public_key';
-    
-    if (!isEmailJSConfigured) {
-      // Fallback to mailto if EmailJS is not configured
-      const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio');
-      const body = encodeURIComponent(
-        `Nom: ${formData.name}\n` +
-        `Email: ${formData.email}\n\n` +
-        `Message:\n${formData.message}`
-      );
-      
-      const mailtoLink = `mailto:chalkhaachraf21@gmail.com?subject=${subject}&body=${body}`;
-      window.open(mailtoLink, '_self');
-      
-      setShowSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-      
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 5000);
-      
+    // Validate EmailJS configuration
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY || 
+        SERVICE_ID.includes('your_') || TEMPLATE_ID.includes('your_') || PUBLIC_KEY.includes('your_')) {
+      console.error('EmailJS configuration is incomplete');
+      alert('Configuration EmailJS incomplète. Veuillez configurer les identifiants EmailJS.');
       setIsLoading(false);
       return;
     }
     
     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
+      name: formData.name, // Maps to {{name}} in template
+      from_email: formData.email, // Maps to {{from_email}} in template
+      reply_to: formData.email, // Sets reply-to address
       subject: formData.subject || 'Contact from Portfolio',
-      message: formData.message,
+      message: formData.message, // Maps to {{message}} in template
+      time: new Date().toLocaleString('fr-FR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      }), // Maps to {{time}} in template
       to_email: 'chalkhaachraf21@gmail.com'
     };
     
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      console.log('Sending email with params:', templateParams);
+      const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      console.log('Email sent successfully:', result);
+      
       setShowSuccess(true);
       setFormData({
         name: '',
@@ -94,7 +87,21 @@ const Contact: React.FC = () => {
       }, 5000);
     } catch (error) {
       console.error('Email sending failed:', error);
-      alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+      
+      // More specific error handling
+      if (error instanceof Error) {
+        if (error.message.includes('Invalid template ID')) {
+          alert('Template ID invalide. Veuillez vérifier la configuration EmailJS.');
+        } else if (error.message.includes('Invalid service ID')) {
+          alert('Service ID invalide. Veuillez vérifier la configuration EmailJS.');
+        } else if (error.message.includes('Invalid public key')) {
+          alert('Clé publique invalide. Veuillez vérifier la configuration EmailJS.');
+        } else {
+          alert(`Erreur lors de l'envoi: ${error.message}`);
+        }
+      } else {
+        alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+      }
     } finally {
       setIsLoading(false);
     }
