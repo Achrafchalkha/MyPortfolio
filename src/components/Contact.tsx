@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Send, 
   Mail, 
@@ -10,28 +11,50 @@ import {
   CheckCircle
 } from 'lucide-react';
 import { personalInfo } from '../data/resume';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
 const Contact: React.FC = () => {
-  const [formStatus, setFormStatus] = useState<'initial' | 'loading' | 'success' | 'error'>('initial');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus('loading');
+    setIsLoading(true);
+    setShowSuccess(false);
     
-    // This is a mock submission - in a real app, you would send data to a server
-    setTimeout(() => {
-      setFormStatus('success');
+    // EmailJS configuration from config file
+    const { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY } = EMAILJS_CONFIG;
+    
+    // Check if EmailJS is properly configured
+    const isEmailJSConfigured = 
+      SERVICE_ID !== 'service_your_service_id' && 
+      TEMPLATE_ID !== 'template_your_template_id' && 
+      PUBLIC_KEY !== 'your_public_key';
+    
+    if (!isEmailJSConfigured) {
+      // Fallback to mailto if EmailJS is not configured
+      const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio');
+      const body = encodeURIComponent(
+        `Nom: ${formData.name}\n` +
+        `Email: ${formData.email}\n\n` +
+        `Message:\n${formData.message}`
+      );
+      
+      const mailtoLink = `mailto:chalkhaachraf21@gmail.com?subject=${subject}&body=${body}`;
+      window.open(mailtoLink, '_self');
+      
+      setShowSuccess(true);
       setFormData({
         name: '',
         email: '',
@@ -39,11 +62,42 @@ const Contact: React.FC = () => {
         message: ''
       });
       
-      // Reset after 3 seconds
       setTimeout(() => {
-        setFormStatus('initial');
-      }, 3000);
-    }, 1500);
+        setShowSuccess(false);
+      }, 5000);
+      
+      setIsLoading(false);
+      return;
+    }
+    
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject || 'Contact from Portfolio',
+      message: formData.message,
+      to_email: 'chalkhaachraf21@gmail.com'
+    };
+    
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+      setShowSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -168,26 +222,6 @@ const Contact: React.FC = () => {
               <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
                 Send a Message
               </h3>
-              
-                {formStatus === 'success' ? (
-                <div className="flex flex-col items-center justify-center py-8">
-                  <svg className="w-16 h-16 text-red-500 mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.918-.816 1.995-1.85L21 18V6c0-1.054-.816-1.918-1.85-1.995L19 4H5c-1.054 0-1.918.816-1.995 1.85L3 6v12c0 1.054.816 1.918 1.85 1.995L5 20z" />
-                  </svg>
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Message Not Sent!
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-center mb-4">
-                  Something went wrong. Please contact me directly at:
-                  </p>
-                  <a 
-                  href={`mailto:${personalInfo.email}`} 
-                  className="text-primary-600 dark:text-primary-400 font-medium hover:underline"
-                  >
-                  {personalInfo.email}
-                  </a>
-                </div>
-              ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
                     <div className="col-span-2 sm:col-span-1">
@@ -254,28 +288,43 @@ const Contact: React.FC = () => {
                     ></textarea>
                   </div>
                   
+                  {/* Success Message */}
+                  {showSuccess && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center p-4 bg-green-100 dark:bg-green-900/30 border border-green-300 dark:border-green-700 rounded-lg"
+                    >
+                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
+                      <span className="text-green-800 dark:text-green-300 font-medium">
+                         Message envoyé avec succès! Je vous répondrai bientôt.
+                       </span>
+                    </motion.div>
+                  )}
+                  
                   <button
                     type="submit"
-                    disabled={formStatus === 'loading'}
-                    className="btn-primary w-full py-3 flex items-center justify-center"
+                    disabled={isLoading}
+                    className="btn-primary w-full py-3 flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    {formStatus === 'loading' ? (
-                      <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        Sending...
-                      </span>
-                    ) : (
-                      <span className="flex items-center">
-                        <Send className="w-4 h-4 mr-2" />
-                        Send Message
-                      </span>
-                    )}
+                    <span className="flex items-center">
+                      {isLoading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Envoi en cours...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-4 h-4 mr-2" />
+                          Send Message
+                        </>
+                      )}
+                    </span>
                   </button>
                 </form>
-              )}
             </div>
           </motion.div>
         </div>

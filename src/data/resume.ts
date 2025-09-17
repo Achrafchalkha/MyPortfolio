@@ -14,6 +14,14 @@ export interface Project {
   imageUrl?: string;
 }
 
+export interface Experience {
+  company: string;
+  position: string;
+  location: string;
+  period: string;
+  responsibilities: string[];
+}
+
 export interface Certification {
   title: string;
   issuer: string;
@@ -33,27 +41,44 @@ export const personalInfo = {
   phone: "+212 770-708444",
   location: "Fes, Morocco",
   linkedin: "linkedin.com/in/achraf-chalkha",
-  summary: "Motivated fourth-year Software Engineering student, with hands-on experience in various types of development, including web, desktop, and console applications. Passionate about Java programming and modern web development, I am seeking internships and opportunities to further my studies and skills."
+  summary: "Final-year Software Engineering student, motivated, creative with practical experience in web, desktop, and command-line development, passionate about Java programming, DevOps practices, and modern web development, seeking a final-year internship opportunity to deepen my skills while contributing to innovative projects."
 };
 
 export const educationData: Education[] = [
   {
-    institution: "NATIONAL SCHOOL OF APPLIED SCIENCES AL HOCEIMA (ENSAH)",
-    degree: "Computer Science Engineering",
+    institution: "NATIONAL SCHOOL OF APPLIED SCIENCES OF AL HOCEIMA (ENSAH)",
+    degree: "Computer Engineering Degree",
     location: "Al Hoceima, Morocco",
     period: "2022 - 2025"
   },
   {
-    institution: "NATIONAL SCHOOL OF APPLIED SCIENCES AL HOCEIMA (ENSAH)",
-    degree: "Preparatory cycle",
+    institution: "NATIONAL SCHOOL OF APPLIED SCIENCES OF AL HOCEIMA (ENSAH)",
+    degree: "Preparatory Cycle",
     location: "Al Hoceima, Morocco",
     period: "2021 - 2023"
   },
   {
     institution: "Oum Al Quora High School",
-    degree: "Baccalaureate in Mathematical Sciences B - French Option",
+    degree: "Bachelor's Degree in Mathematical Sciences B - French Option",
     location: "Fes, Morocco",
     period: "2020 - 2021"
+  }
+];
+
+export const experienceData: Experience[] = [
+  {
+    company: "ALTEN MAROC",
+    position: "Software Development Intern",
+    location: "Fez, Morocco",
+    period: "July 2025 - August 2025",
+    responsibilities: [
+      "Developed an automated AI-powered ITSM platform using DDD microservices architecture with Spring Boot, PostgreSQL, Redis caching, and Apache Kafka for event-driven communication",
+      "Implemented intelligent automated ticket routing and assignment system with NLP capabilities for automatic categorization, priority assessment",
+      "Built a conversational AI chatbot integrated with knowledge base using RAG for automated self-service support across multiple channels",
+      "Designed role-based access control system supporting four user roles with JWT authentication using DDD principles",
+      "Created analytics dashboard with predictive capabilities for automated performance monitoring, KPI tracking, and anomaly detection to optimize support team efficiency",
+      "DevOps Implementation: Containerized microservices using Docker, deployed on Kubernetes cluster with automated CI/CD pipeline via Jenkins, implemented monitoring with Prometheus/Grafana, and provisioned cloud infrastructure using Terraform"
+    ]
   }
 ];
 
@@ -115,27 +140,35 @@ export const projectsData: Project[] = [
 export const skillsData: SkillCategory[] = [
   {
     category: "Programming Languages",
-    skills: ["Java", "PHP", "JavaScript", "Python","C++", "C#","Bash Scripting"]
+    skills: ["Java", "PHP", "JavaScript", "Python", "C++", "C#"]
   },
   { 
     category: "Web Technologies",
-    skills: ["HTML5", "CSS3", "Tailwind CSS", "RESTful APIs", "JSON"]
+    skills: ["HTML5", "CSS3", "Tailwind CSS", "RESTful APIs", "JSON", "GraphQL"]
   },
   { 
     category: "Frameworks & Libraries",
-    skills: ["Angular", "Laravel", "React.js", "TypeScript", "Spring Boot", "Spring MVC", "Spring Security", "Spring Data JPA"]
+    skills: ["Angular", "Laravel", "React.js", "Next.js", "TypeScript", "Express.js", "Spring Boot", "Spring Security", "Spring Data JPA", "Spring Cloud"]
   },
   {
     category: "Databases",
-    skills: ["MySQL", "PostgreSQL", "MongoDB" ,"Oracle DB"]
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Redis", "Oracle"]
   },
   {
     category: "Java Ecosystem",
-    skills: ["Java EE", "Servlet API", "JSP", "Hibernate", "Maven/Gradle"]
+    skills: ["Java EE", "Servlet API", "JSP", "Hibernate", "Maven/Gradle", "JPA", "Microservices", "Spring MVC"]
   },
   {
-    category: "DevOps & Tools",
-    skills: ["Git", "GitHub","Gitlab", "Docker", "Jenkins", "CI/CD", "Linux", "AWS"]
+    category: "DevOps & Cloud",
+    skills: ["Git", "GitHub", "GitLab", "Docker", "Kubernetes", "JUnit", "Jenkins", "CI/CD", "Linux", "AWS", "Terraform", "Prometheus", "Grafana"]
+  },
+  {
+    category: "Architecture & Design",
+    skills: ["Microservices", "DDD", "CQRS", "Event-Driven Architecture", "Design Patterns"]
+  },
+  {
+    category: "Message Brokers & Tools",
+    skills: ["Apache Kafka", "RabbitMQ", "Postman", "SonarQube", "JIRA"]
   }
 ];
 
@@ -159,7 +192,7 @@ export const certificationsData: Certification[] = [
 
 export const extracurricularData = [
   {
-    title: "Team Leader – CHESS CLUB ENSAH",
-    description: "Led organization of first FARAS regional chess tournament, coordinating team members and ensuring effective communication. Enhanced leadership and event management."
+    title: "President – ENSAH CHESS CLUB",
+    description: "Organization of the first regional chess tournament FARAS, team coordination and effective communication. Development of leadership and event management skills."
   }
 ];

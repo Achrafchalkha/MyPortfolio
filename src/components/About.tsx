@@ -63,9 +63,9 @@ const About: React.FC = () => {
             </h3>
             
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              I'm a fourth-year Software Engineering student at the National School of Applied Sciences in Al Hoceima, 
-              Morocco. My journey into software development began with a curiosity about how applications work
-              and has evolved into a passion for creating efficient, user-friendly solutions.
+              Final-year Software Engineering student, motivated, creative with practical experience in web, desktop, and
+command-line development, passionate about Java programming, DevOps practices, and modern web development,
+seeking a final-year internship opportunity to deepen my skills while contributing to innovative projects.
             </p>
             
             <p className="text-gray-700 dark:text-gray-300 mb-8">

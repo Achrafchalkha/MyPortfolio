@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
                 Contact Me
               </Link>
                 <a 
-                href="/MyResume-English(PFA).pdf" 
+                href="/Resume_PFE (1).pdf" 
                 className="btn-outline flex items-center"
                 rel="noopener noreferrer"
                 target="_blank"
