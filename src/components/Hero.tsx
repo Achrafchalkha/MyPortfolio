@@ -4,7 +4,7 @@ import { ChevronDown, Github, Linkedin, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/resume';
 
-const titles = ['Software Engineer', 'Backend Developer', 'Cloud & DevOps Engineer', 'Java & Rust Developer'];
+const titles = ['Software Engineer', 'Backend Developer', 'Cloud & DevOps Engineer', 'Java Developer'];
 
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState('');
