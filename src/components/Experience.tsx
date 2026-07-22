@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
 import { experienceData } from '../data/resume';
 
 const Experience: React.FC = () => {

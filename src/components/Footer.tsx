@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { personalInfo } from '../data/resume';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -19,12 +20,12 @@ const Footer: React.FC = () => {
               AC<span className="text-primary-400">.</span>
             </Link>
             <p className="mt-4 text-gray-400 max-w-md">
-              Computer Engineering student passionate about software development, 
-              seeking opportunities to apply and enhance my skills in real-world projects.
+              Software engineer specializing in backend and full-stack development,
+              distributed systems, cloud, and DevOps.
             </p>
             <div className="flex space-x-4 mt-6">
               <a 
-                href="https://github.com/achrafchalkha" 
+                href={personalInfo.github}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 rounded-full"
@@ -33,7 +34,7 @@ const Footer: React.FC = () => {
                 <Github size={18} />
               </a>
               <a 
-                href="https://www.linkedin.com/in/achraf-chalkha-878484290/"  
+                href={personalInfo.linkedin}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 rounded-full"
@@ -42,7 +43,7 @@ const Footer: React.FC = () => {
                 <Linkedin size={18} />
               </a>
               <a 
-                href="mailto:chalkhaachraf21@gmail.com"
+                href={`mailto:${personalInfo.email}`}
                 className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 rounded-full"
                 aria-label="Email"
               >
@@ -74,22 +75,22 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="text-gray-400">
-                <span className="block">Fes, Morocco</span>
+                <span className="block">{personalInfo.location}</span>
               </li>
               <li className="text-gray-400">
                 <a 
-                  href="mailto:chalkhaachraf21@gmail.com"
+                  href={`mailto:${personalInfo.email}`}
                   className="hover:text-primary-400 transition-colors"
                 >
-                  chalkhaachraf21@gmail.com
+                  {personalInfo.email}
                 </a>
               </li>
               <li className="text-gray-400">
                 <a 
-                  href="tel:+212770708444"
+                  href={`tel:${personalInfo.phone}`}
                   className="hover:text-primary-400 transition-colors"
                 >
-                  +212 770-708444
+                  {personalInfo.phone}
                 </a>
               </li>
             </ul>

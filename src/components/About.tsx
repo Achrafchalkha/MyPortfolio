@@ -7,23 +7,23 @@ const About: React.FC = () => {
   const highlights = [
     {
       icon: <Code className="w-6 h-6 text-primary-500" />,
-      title: "Software Development",
-      description: "Experience in web, desktop, and console application development with modern technologies."
+      title: "Backend & Full Stack",
+      description: "Experience building reliable backend services, APIs, and full-stack applications with modern technologies."
     },
     {
       icon: <Cpu className="w-6 h-6 text-primary-500" />,
-      title: "Engineering Student",
-      description: "Fourth-year student with a strong foundation in computer science and engineering principles."
+      title: "Distributed Systems",
+      description: "Hands-on work with SDKs, microservices, event-driven systems, and scalable cloud architecture."
     },
     {
       icon: <BookOpen className="w-6 h-6 text-primary-500" />,
       title: "Continuous Learner",
-      description: "Passion for learning new technologies and methodologies to stay current in the field."
+      description: "A quality-focused mindset backed by automated testing, code generation, and modern engineering practices."
     },
     {
       icon: <UserCheck className="w-6 h-6 text-primary-500" />,
-      title: "Team Leader",
-      description: "Experience leading and organizing events as Chess Club Team Leader at ENSAH."
+      title: "Leadership",
+      description: "Led the ENSAH Chess Club and organized FARAS, its first regional chess tournament."
     }
   ];
 
@@ -59,20 +59,18 @@ const About: React.FC = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-              Computer Engineering Student & Java Developer
+              Software Engineer & Backend Developer
             </h3>
             
             <p className="text-gray-700 dark:text-gray-300 mb-6">
-              Final-year Software Engineering student, motivated, creative with practical experience in web, desktop, and
-command-line development, passionate about Java programming, DevOps practices, and modern web development,
-seeking a final-year internship opportunity to deepen my skills while contributing to innovative projects.
+              {personalInfo.summary}
             </p>
             
             <p className="text-gray-700 dark:text-gray-300 mb-8">
-              With experience across various development domains, I've built web applications, 
-              desktop software, and console applications. I'm particularly passionate about Java programming 
-              and modern web development technologies like React.js. I'm always seeking new challenges and 
-              opportunities to expand my knowledge and skills.
+              My work spans OCI SDK development in Rust and Java, Spring Boot microservices,
+              full-stack web applications, cloud infrastructure, and DevSecOps delivery. I enjoy
+              turning complex requirements into maintainable systems with a strong focus on testing,
+              performance, and developer experience.
             </p>
 
             <div className="grid grid-cols-2 gap-4">
@@ -101,7 +99,7 @@ seeking a final-year internship opportunity to deepen my skills while contributi
               <div className="flex items-center">
                 <span className="font-semibold mr-1 text-gray-900 dark:text-white">LinkedIn:</span>
                 <a 
-                 href="https://www.linkedin.com/in/achraf-chalkha-878484290/" 
+                 href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary-600 dark:text-primary-400 hover:underline"

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Download } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '../data/resume';
 
+const titles = ['Software Engineer', 'Backend Developer', 'Cloud & DevOps Engineer', 'Java & Rust Developer'];
+
 const Hero: React.FC = () => {
   const [typedText, setTypedText] = useState('');
-  const titles = ['Computer Engineering Student', 'Software Developer', 'Java Specialist', 'Web Developer'];
   const [titleIndex, setTitleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -38,7 +39,7 @@ const Hero: React.FC = () => {
     
     const timer = setTimeout(typeText, typingSpeed);
     return () => clearTimeout(timer);
-  }, [charIndex, isDeleting, titleIndex, titles, typingSpeed]);
+  }, [charIndex, isDeleting, titleIndex, typingSpeed]);
 
   return (
     <section id="hero" className="min-h-screen flex items-center pt-16 relative">
@@ -79,7 +80,7 @@ const Hero: React.FC = () => {
                 Contact Me
               </Link>
                 <a 
-                href="/Resume_PFE (1).pdf" 
+                href={personalInfo.resumeUrl}
                 className="btn-outline flex items-center"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -91,7 +92,7 @@ const Hero: React.FC = () => {
             
             <div className="flex items-center space-x-6">
               <a 
-                href="https://github.com/achrafchalkha" 
+                href={personalInfo.github}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
@@ -100,7 +101,7 @@ const Hero: React.FC = () => {
                 <Github size={24} />
               </a>
               <a 
-                href="https://www.linkedin.com/in/achraf-chalkha-878484290/" 
+                href={personalInfo.linkedin}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
@@ -121,7 +122,7 @@ const Hero: React.FC = () => {
             <div className="relative">
               <img 
               src="/1730805694900 (1).jpg" 
-              alt="Hero Image" 
+              alt="Portrait of Achraf Chalkha"
               className="w-2/3 h-80 lg:h-[24rem] rounded-2xl object-cover shadow-lg ml-36"
               />
               <div className="absolute -bottom-6 -right-6 w-40 h-40 rounded-lg bg-accent-500/10 backdrop-blur-sm z-[-1]"></div>

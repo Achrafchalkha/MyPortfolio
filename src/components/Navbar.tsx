@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-scroll';
 import { Menu, X, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
 import { ThemeContext } from '../context/ThemeContext';
+import { personalInfo } from '../data/resume';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,7 @@ const Navbar: React.FC = () => {
   const menuItems = [
     { name: 'Home', to: 'hero' },
     { name: 'About', to: 'about' },
+    { name: 'Experience', to: 'experience' },
     { name: 'Education', to: 'education' },
     { name: 'Projects', to: 'projects' },
     { name: 'Skills', to: 'skills' },
@@ -79,7 +81,7 @@ const Navbar: React.FC = () => {
 
         <div className="hidden md:flex items-center space-x-4">
           <a 
-            href="https://github.com/achrafchalkha" 
+            href={personalInfo.github}
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
@@ -87,7 +89,7 @@ const Navbar: React.FC = () => {
             <Github size={20} />
           </a>
             <a 
-            href="https://www.linkedin.com/in/achraf-chalkha-878484290/" 
+            href={personalInfo.linkedin}
             target="_blank" 
             rel="noopener noreferrer"
             className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
@@ -155,7 +157,7 @@ const Navbar: React.FC = () => {
           </ul>
           <div className="mt-auto flex justify-center space-x-5">
             <a 
-              href="https://github.com/achrafchalkha" 
+              href={personalInfo.github}
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
@@ -163,7 +165,7 @@ const Navbar: React.FC = () => {
               <Github size={20} />
             </a>
             <a 
-              href="https://linkedin.com/in/achraf-chalkha" 
+              href={personalInfo.linkedin}
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
@@ -171,7 +173,7 @@ const Navbar: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a 
-              href="mailto:chalkhaachraf21@gmail.com" 
+              href={`mailto:${personalInfo.email}`}
               className="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
             >
               <Mail size={20} />

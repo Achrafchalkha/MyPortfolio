@@ -36,18 +36,21 @@ export interface SkillCategory {
 
 export const personalInfo = {
   name: "Achraf Chalkha",
-  title: "Computer Engineering Student",
+  title: "Software Engineer",
   email: "chalkhaachraf21@gmail.com",
   phone: "+212 770-708444",
-  location: "Fes, Morocco",
-  linkedin: "linkedin.com/in/achraf-chalkha",
-  summary: "Final-year Software Engineering student, motivated, creative with practical experience in web, desktop, and command-line development, passionate about Java programming, DevOps practices, and modern web development, seeking a final-year internship opportunity to deepen my skills while contributing to innovative projects."
+  location: "Fez, Morocco",
+  linkedin: "https://linkedin.com/in/achraf-chalkha",
+  github: "https://github.com/achrafchalkha",
+  website: "https://achrafchalkha.vercel.app",
+  resumeUrl: "/Achraf_Chalkha_CV.pdf",
+  summary: "Software engineer with experience in full-stack development and a strong backend focus, as well as distributed systems, cloud technologies, and DevOps practices. Versatile and quality-driven, I aim to contribute to the design of reliable, high-performance, and scalable solutions."
 };
 
 export const educationData: Education[] = [
   {
     institution: "NATIONAL SCHOOL OF APPLIED SCIENCES OF AL HOCEIMA (ENSAH)",
-    degree: "Computer Engineering Degree",
+    degree: "Engineering Degree in Computer Engineering",
     location: "Al Hoceima, Morocco",
     period: "2022 - 2025"
   },
@@ -59,7 +62,7 @@ export const educationData: Education[] = [
   },
   {
     institution: "Oum Al Quora High School",
-    degree: "Bachelor's Degree in Mathematical Sciences B - French Option",
+    degree: "Baccalaureate in Mathematical Sciences B - French Option",
     location: "Fes, Morocco",
     period: "2020 - 2021"
   }
@@ -67,80 +70,73 @@ export const educationData: Education[] = [
 
 export const experienceData: Experience[] = [
   {
-    company: "ALTEN MAROC",
+    company: "ORACLE R&D CENTER",
+    position: "Final-Year Project Intern",
+    location: "Casablanca, Morocco",
+    period: "February 2026 - July 2026",
+    responsibilities: [
+      "Contributed to the maturity of the OCI Rust SDK by developing typed clients and examples for Limits, Monitoring, Load Balancer, and Work Requests",
+      "Implemented cross-cutting features including automatic request identifiers, waiters for asynchronous operations, and retries with exponential backoff",
+      "Enhanced the Rust runtime and Java/Mustache code-generation pipeline, validated through unit tests, generator tests, and Cargo builds",
+      "Technologies: Rust, Java, OCI, Cargo, Maven, Mustache, Swagger/OpenAPI, REST APIs, unit testing"
+    ]
+  },
+  {
+    company: "ALTEN",
     position: "Software Development Intern",
     location: "Fez, Morocco",
     period: "July 2025 - August 2025",
     responsibilities: [
-      "Developed an automated AI-powered ITSM platform using DDD microservices architecture with Spring Boot, PostgreSQL, Redis caching, and Apache Kafka for event-driven communication",
-      "Implemented intelligent automated ticket routing and assignment system with NLP capabilities for automatic categorization, priority assessment",
-      "Built a conversational AI chatbot integrated with knowledge base using RAG for automated self-service support across multiple channels",
-      "Designed role-based access control system supporting four user roles with JWT authentication using DDD principles",
-      "Created analytics dashboard with predictive capabilities for automated performance monitoring, KPI tracking, and anomaly detection to optimize support team efficiency",
-      "DevOps Implementation: Containerized microservices using Docker, deployed on Kubernetes cluster with automated CI/CD pipeline via Jenkins, implemented monitoring with Prometheus/Grafana, and provisioned cloud infrastructure using Terraform"
+      "Designed an AI-powered IT Service Management platform using a DDD-based, event-driven microservices architecture",
+      "Developed NLP-based ticket routing, a RAG chatbot, JWT access control, and a KPI monitoring dashboard",
+      "Implemented a complete DevSecOps pipeline covering code quality and security, containerization, cloud provisioning, Kubernetes deployment, and monitoring",
+      "Technologies: Java, Spring Boot, Angular, PostgreSQL, Redis, Kafka, Docker, Jenkins, SonarQube, Trivy, Terraform, Azure AKS, Prometheus, Grafana"
     ]
   }
 ];
 
 export const projectsData: Project[] = [
   {
-    title: "AI Career Navigator",
-    description: "An intelligent career guidance platform that delivers personalized career recommendations, learning roadmaps, and real-time job market insights using AI. It features JWT-secured authentication, skill tracking, and an interactive user experience powered by Angular frontend and Spring Boot backend.",
-    technologies: [
-      "Spring Boot",
-      "Angular",
-      "JWT",
-      "MongoDB",
-      "Spring Security",
-    ],
-    githubUrl: "https://github.com/Achrafchalkha/AI-CAREER-NAVIGATOR",
-    imageUrl: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
     title: "Talent Acquisition Management System (TAMS)",
-    description: "Building a recruitment management app using Spring Boot, Spring Security, Microservices, DDD, EDA (CQRS) for the backend and React.js with Redux for the frontend. Ensures secure and efficient talent request handling with automated job postings.",
-    technologies: ["Spring Boot", "Spring Security", "Microservices", "DDD", "CQRS", "React.js", "Redux"],
+    description: "A secure recruitment management platform for talent requests and automated job posting, built with Spring Boot microservices, DDD, event-driven CQRS, Spring Security JWT, React, and Redux. Services are containerized with Docker and delivered through Jenkins CI/CD.",
+    technologies: ["Spring Boot", "JWT", "Microservices", "DDD", "CQRS", "React.js", "Redux", "Docker", "Jenkins"],
     githubUrl: "https://github.com/Achrafchalkha/TAMS-MICROSERVICES",
     imageUrl: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
+    title: "AI-Powered Intelligent Career Guidance",
+    description: "An AI-powered platform providing personalized career recommendations and associated skill paths. Built with a Spring Boot and MongoDB backend, JWT-secured authentication, an interactive Angular frontend, Docker, and cloud deployment.",
+    technologies: ["Spring Boot", "Angular", "JWT", "MongoDB", "Spring Security", "Docker"],
+    githubUrl: "https://github.com/Achrafchalkha/AI-CAREER-NAVIGATOR",
+    imageUrl: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
     title: "Social Media Sentiment Analysis",
-    description: "Developing a Java-based sentiment analysis application using Hadoop, Spark, and NLP models. Created JavaFX UI for visualization of big data-powered sentiment insights.",
+    description: "A Java-based sentiment analysis application using Hadoop, Spark, and NLP models, with a JavaFX interface for visualizing big-data sentiment insights.",
     technologies: ["Java", "Hadoop", "Spark", "NLP", "JavaFX"],
     githubUrl: "https://github.com/Achrafchalkha/sentiment-analysis-social-media",
     imageUrl: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
-    title: "Clothes Similarity Search",
-    description: "Developed a full-stack web platform using Flask, Python, and React.js to search for similar clothing items via image and voice input. Containerized the application with Docker to ensure efficient deployment and cross-platform compatibility.",
-    technologies: ["Flask", "Python", "React.js", "Docker", "Image Processing"],
-    githubUrl: "https://github.com/Achrafchalkha/clothes-similarity-search",
-    imageUrl: "https://images.pexels.com/photos/325876/pexels-photo-325876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
     title: "Unisphere",
-    description: "Development of a responsive web platform to manage administrative school services at ENSAH. Leveraged HTML, CSS, PHP (Laravel), and JavaScript to create a comprehensive school management web platform.",
-    technologies: ["HTML", "CSS", "PHP", "Laravel", "JavaScript"],
+    description: "A responsive school administration platform for ENSAH, featuring student registration, grade management, and administrative workflows through a React frontend and Laravel API backend.",
+    technologies: ["React.js", "Laravel", "PHP", "REST API", "JavaScript"],
     githubUrl: "https://github.com/Achrafchalkha/E-service",
     imageUrl: "https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   },
   {
     title: "Collaborative Text Annotation Platform",
-    description: "Developed a collaborative web-based tool for text annotation and dataset management using Spring Boot, Thymeleaf, and TailwindCSS. Features include role and task management, intuitive UI design, and optimized performance and security.",
-    technologies: ["Spring Boot","Spring Security", "Thymeleaf", "TailwindCSS"],
+    description: "A collaborative web tool for text annotation and dataset management, featuring secure role and task management, an intuitive interface, and optimized performance.",
+    technologies: ["Spring Boot", "JWT", "Spring Security", "Thymeleaf"],
     githubUrl: "https://github.com/Achrafchalkha/Web-Based-Collaborative-Annotation-System-with-Task-Assignment",
     imageUrl: "https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
-  
-  
-  
-
 ];
 
 export const skillsData: SkillCategory[] = [
   {
     category: "Programming Languages",
-    skills: ["Java", "PHP", "JavaScript", "Python", "C++", "C#"]
+    skills: ["Java", "Rust", "PHP", "JavaScript", "Python", "C++", "C#"]
   },
   { 
     category: "Web Technologies",
@@ -160,7 +156,7 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: "DevOps & Cloud",
-    skills: ["Git", "GitHub", "GitLab", "Docker", "Kubernetes", "JUnit", "Jenkins", "CI/CD", "Linux", "AWS", "Terraform", "Prometheus", "Grafana"]
+    skills: ["Git", "GitHub", "GitLab", "Docker", "Kubernetes", "JUnit", "Jenkins", "CI/CD", "Linux", "AWS", "Azure", "Terraform", "Prometheus", "Grafana"]
   },
   {
     category: "Architecture & Design",
@@ -168,31 +164,35 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: "Message Brokers & Tools",
-    skills: ["Apache Kafka", "RabbitMQ", "Postman", "SonarQube", "JIRA"]
+    skills: ["Apache Kafka", "RabbitMQ", "Postman", "SonarQube", "Trivy", "Jira"]
   }
 ];
 
 export const certificationsData: Certification[] = [
+  {
+    title: "ORACLE CLOUD INFRASTRUCTURE 2026 CERTIFIED DEVOPS PROFESSIONAL",
+    issuer: "Oracle",
+  },
+  {
+    title: "ORACLE CERTIFIED PROFESSIONAL: JAVA SE 17 DEVELOPER",
+    issuer: "Oracle",
+    url: "/OCP%20JAVA%2017%20(1).pdf",
+  },
   {
     title: "ORACLE CERTIFIED ASSOCIATE, JAVA SE 8 PROGRAMMER",
     issuer: "Oracle",
     url: "/1739293504393.pdf",
   },
   {
-    title: "ORACLE CLOUD INFRASTRUCTURE FOUNDATIONS ASSOCIATE CERTIFICATE",
+    title: "ORACLE CLOUD INFRASTRUCTURE FOUNDATIONS ASSOCIATE",
     issuer: "Oracle",
     url: "/1738178947867.pdf",
-  },
-  {
-    title: "DOCKER FOR BEGINNERS",
-    issuer: "Udemy",
-    url: "/1732557124329.pdf",
   }
 ];
 
 export const extracurricularData = [
   {
     title: "President – ENSAH CHESS CLUB",
-    description: "Organization of the first regional chess tournament FARAS, team coordination and effective communication. Development of leadership and event management skills."
+    description: "Organized the first FARAS regional chess tournament, coordinated the team, and ensured effective communication. Developed leadership and event management skills."
   }
 ];

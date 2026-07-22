@@ -129,13 +129,13 @@ const Contact: React.FC = () => {
       icon: <Linkedin className="w-5 h-5 text-primary-500" />,
       label: 'LinkedIn',
       value: 'Achraf Chalkha',
-      href: 'https://www.linkedin.com/in/achraf-chalkha-878484290/'
+      href: personalInfo.linkedin
     },
     {
       icon: <Github className="w-5 h-5 text-primary-500" />,
       label: 'GitHub',
       value: 'achrafchalkha',
-      href: 'https://github.com/achrafchalkha'
+      href: personalInfo.github
     }
   ];
 
@@ -206,11 +206,11 @@ const Contact: React.FC = () => {
             <ul className="space-y-2 mb-8">
               <li className="flex items-center text-gray-700 dark:text-gray-300">
                 <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
-                Internship opportunities
+                Full-time software engineering roles
               </li>
               <li className="flex items-center text-gray-700 dark:text-gray-300">
                 <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
-                Part-time software development roles
+                Backend, cloud, and DevOps opportunities
               </li>
               <li className="flex items-center text-gray-700 dark:text-gray-300">
                 <div className="w-2 h-2 rounded-full bg-green-500 mr-2"></div>

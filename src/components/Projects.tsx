@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { projectsData } from '../data/resume';
 
 const Projects: React.FC = () => {
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
-
   return (
     <section id="projects" className="section bg-white dark:bg-gray-900">
       <div className="container-custom">
@@ -37,8 +35,6 @@ const Projects: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
-              onMouseEnter={() => setSelectedProject(index)}
-              onMouseLeave={() => setSelectedProject(null)}
             >
               <div className="relative h-48 overflow-hidden">
                 {project.imageUrl && (
